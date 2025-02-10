@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>meri naughty golu ❤️</title>
+    <title>Meri Naughty Golu ❤️</title>
     <style>
         body {
             text-align: center;
@@ -54,43 +54,69 @@
             border-radius: 20px;
             margin-top: 20px;
         }
+        .crazy-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff1a66;
+            margin-top: 20px;
+            display: none;
+        }
     </style>
 </head>
 <body>
+    <audio id="bgMusic" loop>
+        <source src="bgm.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="clickSound">
+        <source src="click.mp3" type="audio/mpeg">
+    </audio>
+
     <div class="container">
-        <h1>meri naughty golu ❤️</h1>
-        <p>promise day par ek vaada, humesha sirf tera hi rahunga! 😘🔥</p>
-        <p>(Hint: touch those lips 😉💋)</p>
-        <p class="heart" onclick="showFunMessage()">💋</p>
-        <p class="fun-message" id="funMessage">haww! itna pyaar? 😏 chalo, ab ek aur surprise hai! ❤️</p>
+        <h1>Meri Naughty Golu ❤️</h1>
+        <p>Promise day par ek waada, humesha sirf tere saath rahunga! 😘🔥</p>
+        <p>(Hint: Us gulabi lips ko touch kar de 😉💋)</p>
+        <p class="heart" onclick="playClickSound(); showFunMessage();">💋</p>
+        <p class="fun-message" id="funMessage">Haww! Itna pyaar? 😏 Chalo, ab ek aur surprise hai! ❤️</p>
         
         <div id="question1" class="question">
-            <p>sach batao, tum mujhse pyaar karte ho na? 😏</p>
-            <button class="btn" onclick="nextQuestion('question2')">haan, bohot zyada! 😘</button>
-            <button class="btn" id="noBtn1" onmouseover="trickNo('noBtn1')">nahi 🙈</button>
+            <p>Sach bata, tu mujhe pyaar karti hai na? 😏</p>
+            <button class="btn" onclick="playClickSound(); nextQuestion('question2')">Haan, bohot zyada! 😘</button>
+            <button class="btn" id="noBtn1" onmouseover="trickNo('noBtn1')">Nahi 🙈</button>
         </div>
         
         <div id="question2" class="question">
-            <p>toh kya tum mujhe humsha miss karte hai? 😘</p>
-            <button class="btn" onclick="nextQuestion('question3')">haan, har pal! 😍</button>
-            <button class="btn" id="noBtn2" onmouseover="trickNo('noBtn2')">nahi 🙈</button>
+            <p>Toh kya tu mujhe hamesha miss karti hai? 😘</p>
+            <button class="btn" onclick="playClickSound(); nextQuestion('question3')">Haan, har second! 😍</button>
+            <button class="btn" id="noBtn2" onmouseover="trickNo('noBtn2')">Nahi 🙈</button>
         </div>
         
         <div id="question3" class="question">
-            <p>accha ek aur last question: kya tu mujhe humesha pyaar karegi? ❤️</p>
-            <button class="btn" onclick="showFinalMessage()">humesha aur humesha! 😘</button>
-            <button class="btn" id="noBtn3" onmouseover="trickNo('noBtn3')">nahi 🙈</button>
+            <p>Last question: Kya tu mujhe hamesha pyaar karegi? ❤️</p>
+            <button class="btn" onclick="playClickSound(); showFinalMessage()">Hamesha aur hamesha! 😘</button>
+            <button class="btn" id="noBtn3" onmouseover="trickNo('noBtn3')">Nahi 🙈</button>
         </div>
         
-        <p class="hidden-message" id="message">tu meri jaan hai, aur humesha meri hi rahegi aur me tera! 😘🔥</p>
+        <p class="hidden-message" id="message">Tu meri jaan hai, aur hamesha meri hi rahegi! 😘🔥</p>
+        
+        <p class="crazy-text" id="crazyText">Ab tere liye ek surprise hai... Mujhe jhappi de phone se! 📱🤗</p>
         
         <div class="final-image" id="finalImage">
-            <img src="myphoto.jpeg" alt="Meri pyaari tasveer ❤️">
+            <img src="myphoto.jpeg" alt="Meri pyaari tasveer ❤️" onclick="playClickSound(); crazyEffect()">
+            <p>Hle kuch dino me me tere paas aa raha hu, phir tujhe aise hi tang karunga, har din, har raat! 😏🔥😘</p>
         </div>
     </div>
     
     <script>
+        function playClickSound() {
+            document.getElementById("clickSound").play();
+        }
+
+        function startBgm() {
+            document.getElementById("bgMusic").play();
+        }
+
         function showFunMessage() {
+            startBgm();
             document.getElementById("funMessage").style.display = "block";
             document.getElementById("question1").style.display = "block";
         }
@@ -105,6 +131,7 @@
             document.getElementById("question3").style.display = "none";
             document.getElementById("message").style.display = "block";
             document.getElementById("finalImage").style.display = "block";
+            document.getElementById("crazyText").style.display = "block";
         }
 
         function trickNo(noBtnId) {
@@ -112,6 +139,10 @@
             noBtn.style.position = "absolute";
             noBtn.style.left = Math.random() * (window.innerWidth - 150) + "px";
             noBtn.style.top = Math.random() * (window.innerHeight - 100) + "px";
+        }
+
+        function crazyEffect() {
+            alert("Haww Golu! 😏 Tune photo ko chua! Ab ek aur pappi mil gayi! 😘");
         }
     </script>
 </body>
