@@ -108,15 +108,22 @@
     
     <script>
         function playClickSound() {
-            document.getElementById("clickSound").play();
+            let clickAudio = document.getElementById("clickSound");
+            clickAudio.volume = 0.7;
+            clickAudio.play();
         }
 
         function startBgm() {
-            document.getElementById("bgMusic").play();
+            let bgMusic = document.getElementById("bgMusic");
+            bgMusic.volume = 0.5;
+            bgMusic.play().catch(error => console.log("Autoplay blocked:", error));
         }
 
-        function showFunMessage() {
+        document.body.addEventListener("click", () => {
             startBgm();
+        }, { once: true });
+
+        function showFunMessage() {
             document.getElementById("funMessage").style.display = "block";
             document.getElementById("question1").style.display = "block";
         }
