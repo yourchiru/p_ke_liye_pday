@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meri Naughty Golu ❤️</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffe6f2;
+            color: #ff4d79;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+        }
+        .heart {
+            font-size: 80px;
+            animation: heartbeat 1.5s infinite;
+            cursor: pointer;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.5); }
+            100% { transform: scale(1); }
+        }
+        .hidden-message, .fun-message, .question, .final-image {
+            display: none;
+            margin-top: 20px;
+            font-size: 22px;
+            color: #ff1a66;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .btn {
+            background: #ff4d79;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .final-image img {
+            width: 100%;
+            border-radius: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Meri Naughty Golu ❤️</h1>
+        <p>Promise day par ek waada, humesha sirf tere saath rahunga! 😘🔥</p>
+        <p>(Hint: Us gulabi lips ko touch kar de 😉💋)</p>
+        <p class="heart" onclick="showFunMessage()">💋</p>
+        <p class="fun-message" id="funMessage">Haww! Itna pyaar? 😏 Chalo, ab ek aur surprise hai! ❤️</p>
+        
+        <div id="question1" class="question">
+            <p>Sach bata, tu mujhe pyaar karti hai na? 😏</p>
+            <button class="btn" onclick="nextQuestion('question2')">Haan, bohot zyada! 😘</button>
+            <button class="btn" id="noBtn1" onmouseover="trickNo('noBtn1')">Nahi 🙈</button>
+        </div>
+        
+        <div id="question2" class="question">
+            <p>Toh kya tu mujhe hamesha miss karti hai? 😘</p>
+            <button class="btn" onclick="nextQuestion('question3')">Haan, har second! 😍</button>
+            <button class="btn" id="noBtn2" onmouseover="trickNo('noBtn2')">Nahi 🙈</button>
+        </div>
+        
+        <div id="question3" class="question">
+            <p>Last question: Kya tu mujhe hamesha pyaar karegi? ❤️</p>
+            <button class="btn" onclick="showFinalMessage()">Hamesha aur hamesha! 😘</button>
+            <button class="btn" id="noBtn3" onmouseover="trickNo('noBtn3')">Nahi 🙈</button>
+        </div>
+        
+        <p class="hidden-message" id="message">Tu meri jaan hai, aur hamesha meri hi rahegi! 😘🔥</p>
+        
+        <div class="final-image" id="finalImage">
+            <img src="myphoto.jpg" alt="Meri pyaari tasveer ❤️">
+        </div>
+    </div>
+    
+    <script>
+        function showFunMessage() {
+            document.getElementById("funMessage").style.display = "block";
+            document.getElementById("question1").style.display = "block";
+        }
+
+        function nextQuestion(nextId) {
+            let current = document.querySelector('.question:not([style*="display: none"])');
+            if (current) current.style.display = "none";
+            document.getElementById(nextId).style.display = "block";
+        }
+
+        function showFinalMessage() {
+            document.getElementById("question3").style.display = "none";
+            document.getElementById("message").style.display = "block";
+            document.getElementById("finalImage").style.display = "block";
+        }
+
+        function trickNo(noBtnId) {
+            let noBtn = document.getElementById(noBtnId);
+            noBtn.style.position = "absolute";
+            noBtn.style.left = Math.random() * (window.innerWidth - 150) + "px";
+            noBtn.style.top = Math.random() * (window.innerHeight - 100) + "px";
+        }
+    </script>
+</body>
+</html>
